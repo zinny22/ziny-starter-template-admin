@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Sidebar, SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { Header } from "@/components/layout";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { Header, Sidebar } from "@/components/layout";
 
 export const metadata: Metadata = {
   title: "zinyAdmin",
