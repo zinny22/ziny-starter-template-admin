@@ -1,0 +1,43 @@
+import { Product } from "@/types/product";
+
+export const productData: Product[] = [
+  {
+    id: "p1",
+    name: "프리미엄 무선 이어폰",
+    imageUrl: "/images/yes_i_can.jpg",
+    sku: "EB-1001",
+    category: "전자기기",
+    price: 129000,
+    quantitySold: 240,
+    revenue: 30960000,
+    stock: 12,
+    updatedAt: "2025-05-22T14:30:00Z",
+    status: "판매중",
+  },
+  {
+    id: "p2",
+    name: "유기농 핸드크림",
+    imageUrl: "/images/yes_i_can.jpg",
+    sku: "HC-2032",
+    category: "뷰티",
+    price: 23000,
+    quantitySold: 510,
+    revenue: 11730000,
+    stock: 30,
+    updatedAt: "2025-05-22T10:00:00Z",
+    status: "판매중",
+  },
+  {
+    id: "p3",
+    name: "기모 후드티",
+    imageUrl: "/images/yes_i_can.jpg",
+    sku: "CL-4055",
+    category: "의류",
+    price: 59000,
+    quantitySold: 120,
+    revenue: 7080000,
+    stock: 0,
+    updatedAt: "2025-05-20T09:20:00Z",
+    status: "품절",
+  },
+];

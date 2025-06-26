@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChartAreaInteractive } from "../organisms";
+import { ChartAreaInteractive, TrendList } from "../organisms";
 import { StateCard } from "../molecules";
 
 function Dashboard() {
@@ -31,6 +31,8 @@ function Dashboard() {
                 />
             </div>
             <ChartAreaInteractive title={title} />
+
+            <TrendList />
         </div>
     );
 }
