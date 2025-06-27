@@ -1,23 +1,10 @@
 'use client';
 
-import { Button } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-} from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-} from "@/components/ui/select";
-import { RotateCcw, Search } from "lucide-react";
 import { useState } from "react";
-import { FormField, LabelForm } from "../molecules";
+import { FormField, LabelForm } from "@/components/shared";
+import { Button, Card, CardContent, CardFooter, CardHeader, Checkbox, Label, Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui";
+import { RotateCcw, Search } from "lucide-react";
+
 
 function ProductSearch() {
     const [search, setSearch] = useState(["selling"]);

@@ -1,14 +1,15 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { productData } from "@/data/product";
-import { cn } from "@/lib/utils";
-import { Product } from "@/types/product";
-import { ColumnDef } from "@tanstack/react-table";
-import Image from "next/image";
-import { GenericTable } from "../organisms";
-import { ProductSearch } from "../templates";
 
-export const productColumns: ColumnDef<Product>[] = [
+
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { ColumnDef } from "@tanstack/react-table";
+import { GenericTable } from "@/components/shared";
+import { ProductSearch } from "./components";
+import { Badge, Card, CardContent, CardHeader } from "@/components/ui";
+import { ProductType } from "./products.type";
+import { productData } from "./mock";
+
+export const productColumns: ColumnDef<ProductType>[] = [
     {
         accessorKey: "name",
         header: "상품명",

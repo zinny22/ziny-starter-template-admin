@@ -1,33 +1,20 @@
 
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
 import { useState } from "react";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-} from "@/components/ui/card";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import { Product } from "@/types/product";
+import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import { productData } from "@/data/product";
 import { cn } from "@/lib/utils";
 import { popularKeywords } from "@/data/search";
 import { PopularKeyword } from "@/types/search";
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
-import GenericTable from "../GenericTable";
+import { GenericTable } from "@/components/shared";
+import { ProductType } from "../../products/products.type";
+import { productData } from "../../products/mock";
+import { Badge, Card, CardContent, CardDescription, CardHeader, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, ToggleGroup, ToggleGroupItem } from "@/components/ui";
 
-export const productColumns: ColumnDef<Product>[] = [
+
+export const productColumns: ColumnDef<ProductType>[] = [
     {
         accessorKey: "name",
         header: "상품명",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Products } from "@/components/pages";
+import { Products } from "@/components/features";
 
 function ProductsPage() {
   return <Products />;

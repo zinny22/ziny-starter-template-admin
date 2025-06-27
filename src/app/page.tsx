@@ -1,4 +1,4 @@
-import { Dashboard } from "@/components/pages";
+import { Dashboard } from "@/components/features";
 
 function Home() {
   return (

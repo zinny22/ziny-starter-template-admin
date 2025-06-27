@@ -1,12 +1,7 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
-import {
-    Card,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+
 import { cn } from "@/lib/utils";
+import { Badge, Card, CardDescription, CardHeader, CardTitle } from "@/components/ui";
 import { TrendingDownIcon, TrendingUpIcon } from "lucide-react";
 
 interface StateCardProps {

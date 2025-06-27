@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { ChartAreaInteractive, TrendList } from "../organisms";
-import { StateCard } from "../molecules";
+import { ChartAreaInteractive, StateCard, TrendList } from "./components";
+
 
 function Dashboard() {
     const [title, setTitle] = useState("매출");
