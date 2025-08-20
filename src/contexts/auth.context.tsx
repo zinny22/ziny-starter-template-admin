@@ -21,11 +21,11 @@ export type AuthContextValue = {
 
 const initialAuthContextValue: AuthContextValue = {
   isAuthInitialized: false,
-  setIsAuthInitialized: () => {},
+  setIsAuthInitialized: () => { },
   isLoggedIn: false,
-  setIsLoggedIn: () => {},
-  logIn: () => {},
-  logOut: () => {},
+  setIsLoggedIn: () => { },
+  logIn: () => { },
+  logOut: () => { },
 };
 
 const AuthContext = createContext<AuthContextValue>(initialAuthContextValue);
@@ -36,6 +36,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   const logIn = useCallback((accessToken: string, redirectTo?: string) => {
+    console.log("accessToken", accessToken);
     setIsLoggedIn(true);
     localStorage.setItem("accessToken", accessToken);
     if (redirectTo) router.replace(redirectTo);

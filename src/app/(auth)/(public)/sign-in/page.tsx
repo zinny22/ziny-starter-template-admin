@@ -16,22 +16,17 @@ const SignInPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      router.push("/");
-    }
-  }, [isLoggedIn, router]);
-
   const onClickSignIn = () => {
     if (!email || !password) return;
 
-    setIsLoading(true);
-
-    setTimeout(() => {
+    try {
+      setIsLoading(true);
       logIn(email, "/");
-    }, 1000);
-
-    setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const onkeyPress = (e: KeyboardEvent) => {
@@ -39,6 +34,12 @@ const SignInPage = () => {
       onClickSignIn();
     }
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push("/");
+    }
+  }, [isLoggedIn, router]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-[1rem] sm:px-0">
