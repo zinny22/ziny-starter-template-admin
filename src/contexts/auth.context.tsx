@@ -6,6 +6,7 @@ import {
   SetStateAction,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -36,7 +37,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   const logIn = useCallback((accessToken: string, redirectTo?: string) => {
-    console.log("accessToken", accessToken);
     setIsLoggedIn(true);
     localStorage.setItem("accessToken", accessToken);
     if (redirectTo) router.replace(redirectTo);
@@ -49,6 +49,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      setIsLoggedIn(true);
+    }
+    setIsAuthInitialized(true);
+  }, []);
+
 
   const value = useMemo(
     () => ({

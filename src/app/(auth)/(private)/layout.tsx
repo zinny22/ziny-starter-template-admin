@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { useAuth } from "@/contexts/auth.context";
 import { useRouter } from "next/navigation";
 import { SidebarProvider } from "@/components/ui/sidebar";
@@ -11,10 +11,12 @@ function AuthLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const { isLoggedIn } = useAuth();
 
-  if (!isLoggedIn) {
-    router.replace("/sign-in");
-    return null;
-  }
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.replace("/sign-in");
+      return;
+    }
+  }, [isLoggedIn]);
 
   return (
     <SidebarProvider>
