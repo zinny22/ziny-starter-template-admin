@@ -1,4 +1,3 @@
-
 import {
   Home,
   User,
@@ -25,13 +24,13 @@ export const navData = [
     ],
   },
   {
-    title: "Customers",
-    url: "/customers",
+    title: "USER",
+    url: "/users",
     icon: <User />,
     items: [
       {
-        title: "Customers",
-        url: "/customers",
+        title: "유저 관리",
+        url: "/users",
         icon: <User />,
       },
     ],
