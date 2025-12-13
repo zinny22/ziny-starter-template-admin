@@ -1,7 +1,13 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Badge, Card, CardDescription, CardHeader, CardTitle } from "@/components/ui";
+import {
+  Badge,
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui";
 import { TrendingDownIcon, TrendingUpIcon } from "lucide-react";
 
 interface StateCardProps {
@@ -23,7 +29,7 @@ function StateCard({
     <Card className="@container/card cursor-pointer w-full" onClick={onClick}>
       <CardHeader className="flex flex-col gap-1">
         <div className="flex items-start justify-between w-full">
-          <CardDescription >{title}</CardDescription>
+          <CardDescription>{title}</CardDescription>
 
           {change ? (
             <Badge
@@ -44,9 +50,7 @@ function StateCard({
             </Badge>
           ) : null}
         </div>
-        <CardTitle className={cn("text-2xl font-semibold")}>
-          {value}
-        </CardTitle>
+        <CardTitle className={cn("text-2xl font-semibold")}>{value}</CardTitle>
       </CardHeader>
     </Card>
   );

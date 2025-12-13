@@ -1,11 +1,11 @@
 "use client";
 
 import { ReactNode, useEffect } from "react";
-import { useAuth } from "@/contexts/auth.context";
 import { useRouter } from "next/navigation";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Header, Sidebar } from "@/components/layout";
 import { SidebarInset } from "@/components/ui/sidebar";
+import { useAuth } from "@/shared/providers";
 
 function AuthLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -26,7 +26,7 @@ function AuthLayout({ children }: { children: ReactNode }) {
         {children}
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }
 
 export default AuthLayout;

@@ -15,8 +15,8 @@ import { useRouter } from "next/navigation";
 import React, { useState, useEffect, KeyboardEvent } from "react";
 import { Eye, EyeOff, Loader2, Mail, Lock, LogIn } from "lucide-react";
 import Image from "next/image";
-import { useAuth } from "@/contexts/auth.context";
 import Link from "next/link";
+import { useAuth } from "@/shared/providers";
 
 const SignInPage = () => {
   const router = useRouter();

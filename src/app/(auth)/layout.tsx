@@ -1,14 +1,10 @@
 "use client";
 
+import { AuthProvider } from "@/shared/providers";
 import { ReactNode } from "react";
-import { AuthProvider } from "@/contexts/auth.context";
 
 function ProviderLayout({ children }: { children: ReactNode }) {
-  return (
-    <AuthProvider>
-      {children}
-    </AuthProvider>
-  );
+  return <AuthProvider>{children}</AuthProvider>;
 }
 
 export default ProviderLayout;

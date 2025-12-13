@@ -1,9 +1,5 @@
-import { Dashboard } from "@/components/features";
-
 function Home() {
-  return (
-    <Dashboard />
-  );
+  return <div>홈</div>;
 }
 
 export default Home;

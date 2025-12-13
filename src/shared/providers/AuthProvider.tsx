@@ -22,19 +22,20 @@ export type AuthContextValue = {
 
 const initialAuthContextValue: AuthContextValue = {
   isAuthInitialized: false,
-  setIsAuthInitialized: () => { },
+  setIsAuthInitialized: () => {},
   isLoggedIn: false,
-  setIsLoggedIn: () => { },
-  logIn: () => { },
-  logOut: () => { },
+  setIsLoggedIn: () => {},
+  logIn: () => {},
+  logOut: () => {},
 };
 
 const AuthContext = createContext<AuthContextValue>(initialAuthContextValue);
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+export default function AuthProvider({ children }: { children: ReactNode }) {
+  const router = useRouter();
+
   const [isAuthInitialized, setIsAuthInitialized] = useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const router = useRouter();
 
   const logIn = useCallback((accessToken: string, redirectTo?: string) => {
     setIsLoggedIn(true);
@@ -58,7 +59,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsAuthInitialized(true);
   }, []);
 
-
   const value = useMemo(
     () => ({
       isAuthInitialized,
@@ -72,6 +72,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 
   return <AuthContext value={value}>{children}</AuthContext>;
-};
+}
 
 export const useAuth = () => useContext(AuthContext);

@@ -28,8 +28,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
-import { useAuth } from "@/contexts/auth.context";
 import Link from "next/link";
+import { useAuth } from "@/shared/providers";
 
 const SignUpPage = () => {
   const router = useRouter();
