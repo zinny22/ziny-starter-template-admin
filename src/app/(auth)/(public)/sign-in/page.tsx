@@ -17,6 +17,7 @@ import { Eye, EyeOff, Loader2, Mail, Lock, LogIn } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/shared/providers";
+import { PasswordField, TextField } from "@/shared/ui/field";
 
 const SignInPage = () => {
   const router = useRouter();
@@ -85,6 +86,7 @@ const SignInPage = () => {
               계정에 로그인하여 계속하세요
             </CardDescription>
           </CardHeader>
+
           <CardContent className="space-y-6 pt-4 px-8">
             <div
               className={`space-y-4 transition-all duration-700 delay-200 ${
@@ -93,64 +95,26 @@ const SignInPage = () => {
                   : "translate-y-4 opacity-0"
               }`}
             >
-              <div className="space-y-2 group">
-                <Label
-                  htmlFor="email"
-                  className="text-sm font-medium transition-colors group-focus-within:text-indigo-600"
-                >
-                  이메일
-                </Label>
-                <div className="relative transition-all duration-300 transform focus-within:scale-[1.01]">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-indigo-600" />
-                  <Input
-                    type="email"
-                    id="email"
-                    placeholder="name@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onKeyPress={onkeyPress}
-                    className="pl-10 h-12 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus-visible:ring-indigo-600 transition-all shadow-sm"
-                  />
-                </div>
-              </div>
-              <div className="space-y-2 group">
-                <div className="flex items-center justify-between">
-                  <Label
-                    htmlFor="password"
-                    className="text-sm font-medium transition-colors group-focus-within:text-indigo-600"
-                  >
-                    비밀번호
-                  </Label>
-                </div>
-                <div className="relative transition-all duration-300 transform focus-within:scale-[1.01]">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-indigo-600" />
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    id="password"
-                    placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    onKeyPress={onkeyPress}
-                    className="pl-10 pr-10 h-12 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus-visible:ring-indigo-600 transition-all shadow-sm"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
-                  >
-                    {showPassword ? (
-                      <Eye className="h-4 w-4" />
-                    ) : (
-                      <EyeOff className="h-4 w-4" />
-                    )}
-                  </button>
-                </div>
-              </div>
+              <TextField
+                label="이메일"
+                icon={Mail}
+                id="email"
+                placeholder="name@example.com"
+                value={email}
+                onChange={(value) => setEmail(value)}
+                onKeyDown={onkeyPress}
+              />
+              <PasswordField
+                label="비밀번호"
+                value={password}
+                onChange={setPassword}
+                placeholder="••••••••"
+              />
             </div>
           </CardContent>
+
           <CardFooter className="flex flex-col gap-4 px-8 pb-8 pt-2">
             <Button
-              onClick={onClickSignIn}
               disabled={isLoading || !email || !password}
               className={`w-full h-12 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 ${
                 isLoading
@@ -161,12 +125,12 @@ const SignInPage = () => {
               {isLoading ? (
                 <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               ) : (
-                <LogIn className="mr-2 h-5 w-5" />
+                <LogIn className="mr-2 h-5 w-5 transition-transform duration-300  group-hover:translate-x-1" />
               )}
               로그인
             </Button>
 
-            <div className="text-center text-sm text-slate-500 mt-2">
+            <div className="text-center text-xs text-slate-500 mt-2">
               계정이 없으신가요?{" "}
               <Link
                 href="/sign-up"
