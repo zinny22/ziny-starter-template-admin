@@ -29,7 +29,7 @@ const SignInPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  const onClickSignIn = async () => {
+  const handleLogIn = async () => {
     if (!email || !password) return;
 
     try {
@@ -44,7 +44,7 @@ const SignInPage = () => {
 
   const onkeyPress = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
-      onClickSignIn();
+      handleLogIn();
     }
   };
 
@@ -121,6 +121,7 @@ const SignInPage = () => {
                   ? "cursor-not-allowed opacity-70"
                   : "hover:-translate-y-0.5"
               }`}
+              onClick={handleLogIn}
             >
               {isLoading ? (
                 <Loader2 className="mr-2 h-5 w-5 animate-spin" />
