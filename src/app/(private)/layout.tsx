@@ -6,6 +6,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { Header, Sidebar } from "@/components/layout";
 import { SidebarInset } from "@/components/ui/sidebar";
 import { useAuthStore } from "@/stores/authStore";
+import { BreadcrumbProvider } from "@/context/Breadcrumb.context";
 
 function AuthLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -25,8 +26,10 @@ function AuthLayout({ children }: { children: ReactNode }) {
     <SidebarProvider>
       <Sidebar />
       <SidebarInset>
-        <Header />
-        {children}
+        <BreadcrumbProvider>
+          <Header />
+          {children}
+        </BreadcrumbProvider>
       </SidebarInset>
     </SidebarProvider>
   );

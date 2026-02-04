@@ -2,7 +2,7 @@
 
 시스템에 접근하는 모든 사용자(서비스 이용자 및 관리자)를 관리하는 테이블입니다.
 
-## Table: Permissions
+## Table: Users
 
 | Column Name | Data Type | Key | Description |
 | :--- | :--- | :--- | :--- |

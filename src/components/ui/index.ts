@@ -10,3 +10,6 @@ export { ChartContainer, ChartTooltip, ChartTooltipContent } from "./chart";
 export { Tooltip, TooltipProvider, TooltipContent, TooltipTrigger } from "./tooltip";
 export { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 export { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuItem, DropdownMenuSeparator } from "./dropdown-menu";
+export { Breadcrumb, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "./breadcrumb";
+export { Separator } from "./separator";
+export { Sidebar, SidebarInset, SidebarTrigger } from "./sidebar";
