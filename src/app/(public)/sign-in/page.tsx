@@ -8,20 +8,18 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  Input,
-  Label,
 } from "@/components/ui";
 import { useRouter } from "next/navigation";
-import React, { useState, useEffect, KeyboardEvent } from "react";
-import { Eye, EyeOff, Loader2, Mail, Lock, LogIn } from "lucide-react";
+import  { useState, useEffect, KeyboardEvent } from "react";
+import { Loader2, Mail, LogIn } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useAuth } from "@/shared/providers";
-import { PasswordField, TextField } from "@/shared/ui/field";
+import { useAuthStore } from "@/stores/authStore";
+import { PasswordField, TextField } from "@/components/common/field";
 
 const SignInPage = () => {
   const router = useRouter();
-  const { isLoggedIn, logIn } = useAuth();
+  const { isLoggedIn, login } = useAuthStore();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +32,8 @@ const SignInPage = () => {
 
     try {
       setIsLoading(true);
-      await logIn(email, "/");
+      login(email);
+      router.replace("/");
     } catch (error) {
       console.log(error);
     } finally {

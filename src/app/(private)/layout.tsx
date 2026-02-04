@@ -5,18 +5,21 @@ import { useRouter } from "next/navigation";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Header, Sidebar } from "@/components/layout";
 import { SidebarInset } from "@/components/ui/sidebar";
-import { useAuth } from "@/shared/providers";
+import { useAuthStore } from "@/stores/authStore";
 
 function AuthLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAuthInitialized } = useAuthStore();
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (isAuthInitialized && !isLoggedIn) {
       router.replace("/sign-in");
-      return;
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, isAuthInitialized, router]);
+
+  if (!isAuthInitialized) {
+    return null; // Or a loading spinner
+  }
 
   return (
     <SidebarProvider>

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { getBreadcrumbTitles } from "@/shared/utils/breadcrumb";
+import { getBreadcrumbTitles } from "@/utils/breadcrumb";
 import { usePathname } from "next/navigation";
 
 function Header() {

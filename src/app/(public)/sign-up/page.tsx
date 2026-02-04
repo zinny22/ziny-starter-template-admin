@@ -29,14 +29,14 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useAuth } from "@/shared/providers";
-import { PasswordField, SelectField, TextField } from "@/shared/ui/field";
-import { useIsMobile } from "@/shared/hooks";
+import { useAuthStore } from "@/stores/authStore";
+import { PasswordField, SelectField, TextField } from "@/components/common/field";
+import { useIsMobile } from "@/hooks";
 import { cn } from "@/lib/utils";
 
 const SignUpPage = () => {
   const router = useRouter();
-  const { isLoggedIn, logIn } = useAuth();
+  const { isLoggedIn, login } = useAuthStore();
   const isMobile = useIsMobile();
 
   const [formData, setFormData] = useState({
@@ -65,7 +65,8 @@ const SignUpPage = () => {
       setIsLoading(true);
       //  TODO: 회원가입 API 연결
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      logIn(email, "/");
+      login(email);
+      router.replace("/");
     } catch (error) {
       console.log(error);
     } finally {

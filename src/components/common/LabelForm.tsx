@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
-import { Label } from "../ui/label";
+import { Label } from "@/components/ui/label";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "../ui/tooltip";
+} from "@/components/ui/tooltip";
 
 interface LabelFormProps {
     label: string;
